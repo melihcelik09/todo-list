@@ -15,7 +15,7 @@ export default class App extends Component {
   };
   addTodo = () => {
     const value = this.state.userInput;
-    if (value.length > 0) {
+    if (value.trim().length > 0) {
       const todoList = {
         desc: value,
         completed: false,
@@ -26,6 +26,7 @@ export default class App extends Component {
         todoList: newTodoList,
       });
     }
+    this.setState({ userInput: "" });
   };
 
   clearTodoList = () => {
